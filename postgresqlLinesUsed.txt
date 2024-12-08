@@ -1,0 +1,27 @@
+to login, use :
+psql - U postgres 
+password: admin
+to create database: CREATE DATABASE heart_disease;
+
+\c heart_disease  : connect to db 
+
+now we need to create table in the database. Use the following for framingham database:
+CREATE TABLE framingham_data (
+    patient_id SERIAL PRIMARY KEY,
+    male BOOLEAN,
+    age INT,
+    education INT,
+    currentSmoker BOOLEAN,
+    cigsPerDay INT,
+    BPMeds BOOLEAN,
+    prevalentStroke BOOLEAN,
+    prevalentHyp BOOLEAN,
+    diabetes BOOLEAN,
+    totChol INT,
+    sysBP FLOAT,
+    diaBP FLOAT,
+    BMI FLOAT,
+    heartRate INT,
+    glucose FLOAT,
+    TenYearCHD BOOLEAN
+);
