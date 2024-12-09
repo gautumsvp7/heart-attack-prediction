@@ -1,2 +1,2 @@
-Need to setup Virtual Env and then install PySpark.
-Need to run PostgresDB.
+Need to setup Virtual Env and then install PySpark. - done
+Need to run PostgresDB. - done
