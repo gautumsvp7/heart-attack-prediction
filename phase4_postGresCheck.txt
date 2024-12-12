@@ -1,0 +1,17 @@
+SELECT 
+    SUM(CASE WHEN age IS NULL THEN 1 ELSE 0 END) AS null_age,
+    SUM(CASE WHEN sex IS NULL THEN 1 ELSE 0 END) AS null_sex,
+    SUM(CASE WHEN cp IS NULL THEN 1 ELSE 0 END) AS null_cp,
+    SUM(CASE WHEN trestbps IS NULL THEN 1 ELSE 0 END) AS null_trestbps,
+    SUM(CASE WHEN chol IS NULL THEN 1 ELSE 0 END) AS null_chol,
+    SUM(CASE WHEN fbs IS NULL THEN 1 ELSE 0 END) AS null_fbs,
+    SUM(CASE WHEN restecg IS NULL THEN 1 ELSE 0 END) AS null_restecg,
+    SUM(CASE WHEN thalach IS NULL THEN 1 ELSE 0 END) AS null_thalach,
+    SUM(CASE WHEN exang IS NULL THEN 1 ELSE 0 END) AS null_exang,
+    SUM(CASE WHEN oldpeak IS NULL THEN 1 ELSE 0 END) AS null_oldpeak,
+    SUM(CASE WHEN slope IS NULL THEN 1 ELSE 0 END) AS null_slope,
+    SUM(CASE WHEN ca IS NULL THEN 1 ELSE 0 END) AS null_ca,
+    SUM(CASE WHEN thal IS NULL THEN 1 ELSE 0 END) AS null_thal,
+    SUM(CASE WHEN num IS NULL THEN 1 ELSE 0 END) AS null_num
+FROM clevelandData;
+-- above is to check if null values exist
