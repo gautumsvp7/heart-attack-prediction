@@ -20,30 +20,20 @@ def transform(data):
     for col in numeric_columns:
         data[col] = pd.to_numeric(data[col], errors='coerce')
     
+    data.to_csv("clevelandWithHeader.csv", index=False) #Saves csv
+
     return data
 
 # Step 3: Load
-def load(data, jdbc_url, table_name):
-    # print("Loading data into PostgreSQL...")
-    # engine = create_engine(db_url)
-    # data.to_sql(table_name, engine, if_exists='replace', index=False)
-    # print("Data successfully loaded!")
-    # print("Starting the load process...")
-    # subprocess.run(["python", "clevelandPostgre.py"], check=True)
-    # print("Data loading complete!")
-
-
-
-
-    # Initialize SparkSession
+def load(jdbc_url, table_name):
     spark = pyspark.sql.SparkSession \
     .builder \
     .appName("Python Spark SQL basic example") \
     .config('spark.driver.extraClassPath', "/Users/gautu/Documents/Projects/LinkedInLearning/postgresql-42.7.4.jar") \
     .getOrCreate()
 
-    # csv_file_path = "./clevelandWithHeader.csv"
-    # df = spark.read.csv(csv_file_path, header=True, inferSchema=True)
+    csv_file_path = "./clevelandWithHeader.csv"
+    data = spark.read.csv(csv_file_path, header=True, inferSchema=True)
 
 
 
@@ -71,7 +61,7 @@ def load(data, jdbc_url, table_name):
 def run_etl(file_path, db_url, table_name):
     data = extract(file_path)
     transformed_data = transform(data)
-    load(transformed_data, db_url, table_name)
+    load(db_url, table_name)
 
 # Define file path, database URL, and table name
 file_path = "./clevelandWithHeader.csv"
