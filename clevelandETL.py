@@ -11,7 +11,7 @@ def extract(file_path):
 # Step 2: Transform
 def transform(data):
     print("Transforming data...")
-    data.fillna(data.median(),inplace=True)
+   
 
     #Defining an age group column for ease of use in PowerBI
     data['age_group'] = pd.cut(data['age'], bins=[0, 20, 40, 60, 80, 100], labels=['0-20', '21-40', '41-60', '61-80', '80+'])
@@ -19,7 +19,7 @@ def transform(data):
     numeric_columns = ["age", "trestbps", "chol", "thalach", "oldpeak"]
     for col in numeric_columns:
         data[col] = pd.to_numeric(data[col], errors='coerce')
-    
+        data[col].fillna(data[col].median(),inplace=True)
     data.to_csv("clevelandWithHeader.csv", index=False) #Saves csv
 
     return data
@@ -33,7 +33,7 @@ def load(jdbc_url, table_name):
     .getOrCreate()
 
     csv_file_path = "./clevelandWithHeader.csv"
-    data = spark.read.csv(csv_file_path, header=True, inferSchema=True)
+    data = spark.read.csv(csv_file_path, header=True)
 
 
 
