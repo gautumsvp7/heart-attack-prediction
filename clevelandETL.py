@@ -33,7 +33,7 @@ def load(jdbc_url, table_name):
     .getOrCreate()
 
     csv_file_path = "./clevelandWithHeader.csv"
-    data = spark.read.csv(csv_file_path, header=True)
+    data = spark.read.csv(csv_file_path, header=True, inferSchema=True)
 
 
 

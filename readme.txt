@@ -1,2 +1,1 @@
-Testing github
-joseph
+The ETL pipeline code is inserting the data again and again instead of re-writing the existing rows. This maybe a bug.
