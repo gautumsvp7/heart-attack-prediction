@@ -138,4 +138,8 @@ print(classification_report(y_test, y_pred))
 
 By following these steps, you should be able to select, train, and evaluate a model for predicting heart disease from the Cleveland dataset.
 
-test
+Things to do - 02/02/2025 : Final stretch
+1) Get model accuracy to above 80%
+2) Create a data pipeline by uploading data to PostgreSQL and then inserting to ML model
+3) Export machine learning model for use in a python scipt
+4) Submit Python script for website dev
